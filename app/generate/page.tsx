@@ -23,7 +23,7 @@ export default function GeneratePage() {
             </span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Fill in your details below and let GPT-4o craft 5 tailored thesis research ideas for you.
+            Fill in your details below and let Gemini 1.5 Flash craft 5 tailored thesis research ideas for you.
           </p>
         </div>
 
