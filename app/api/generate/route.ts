@@ -14,9 +14,10 @@ export async function POST(req: NextRequest) {
     const result = await generateResearchIdeas(body);
     return NextResponse.json(result);
   } catch (error) {
-    console.error("Generate error:", error);
+    const message = error instanceof Error ? error.message : "Unknown error occurred";
+    console.error("Generate error:", message);
     return NextResponse.json(
-      { error: "Failed to generate ideas. Please try again." },
+      { error: message },
       { status: 500 }
     );
   }
