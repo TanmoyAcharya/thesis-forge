@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { generateResearchIdeas } from "@/lib/openai";
+import { generateResearchIdeas } from "@/lib/gemini";
 import { GeneratePayload } from "@/types";
 
 export async function POST(req: NextRequest) {

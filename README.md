@@ -1,19 +1,19 @@
 # ⚗️ ThesisForge — AI Research Idea Generator for Engineering Students
 
-ThesisForge uses **OpenAI GPT-4o** to generate 5 novel, feasibility-scored thesis research ideas tailored to your engineering field, tools, and interests. Built for students in Electrical, Mechanical, Metallurgy, Chemical, and Computer Science engineering.
+ThesisForge uses **Google Gemini 1.5 Flash** to generate 5 novel, feasibility-scored thesis research ideas tailored to your engineering field, tools, and interests. Built for students in Electrical, Mechanical, Metallurgy, Chemical, and Computer Science engineering.
 
 ## Tech Stack
 
 - **Next.js 14** (App Router) + **TypeScript**
 - **Tailwind CSS** + **Framer Motion**
-- **OpenAI GPT-4o** via `openai` npm package
+- **Google Gemini 1.5 Flash** via `@google/generative-ai` npm package (FREE)
 - **pdf-parse** for research paper context upload
 - **react-hook-form** + **zod** for form validation
 
 ## Prerequisites
 
 - Node.js 18+
-- An OpenAI API key ([get one here](https://platform.openai.com/api-keys))
+- A Google Gemini API key — **FREE** ([get one here](https://aistudio.google.com/apikey))
 
 ## Setup
 
@@ -22,7 +22,7 @@ git clone https://github.com/TanmoyAcharya/thesis-forge
 cd thesis-forge
 npm install
 cp .env.example .env.local
-# Edit .env.local and add your OPENAI_API_KEY
+# Edit .env.local and add your GOOGLE_AI_API_KEY
 npm run dev
 ```
 
@@ -67,14 +67,14 @@ Parse a PDF research paper for context.
 
 1. Push this repo to GitHub
 2. Go to [vercel.com](https://vercel.com) → New Project → import the repo
-3. Add `OPENAI_API_KEY` as an environment variable
+3. Add `GOOGLE_AI_API_KEY` as an environment variable
 4. Deploy ✅
 
-## Getting an OpenAI API Key
+## Getting a Google Gemini API Key (FREE)
 
-1. Go to [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-2. Create a new key
-3. Add it to `.env.local` as `OPENAI_API_KEY=sk-...`
+1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+2. Sign in with your Google account and create a new key
+3. Add it to `.env.local` as `GOOGLE_AI_API_KEY=AIza...`
 
 ---
 
