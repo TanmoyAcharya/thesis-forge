@@ -1,14 +1,81 @@
-# ⚗️ ThesisForge
+# ⚗️ ThesisForge — AI Research Idea Generator for Engineering Students
 
-> AI-powered Research Idea Generator for Engineering Thesis Students
+ThesisForge uses **OpenAI GPT-4o** to generate 5 novel, feasibility-scored thesis research ideas tailored to your engineering field, tools, and interests. Built for students in Electrical, Mechanical, Metallurgy, Chemical, and Computer Science engineering.
 
-ThesisForge helps students in Electrical, Mechanical, Metallurgy, Chemical, and Computer Science engineering generate tailored thesis research ideas using GPT-4o.
+## Tech Stack
+
+- **Next.js 14** (App Router) + **TypeScript**
+- **Tailwind CSS** + **Framer Motion**
+- **OpenAI GPT-4o** via `openai` npm package
+- **pdf-parse** for research paper context upload
+- **react-hook-form** + **zod** for form validation
+
+## Prerequisites
+
+- Node.js 18+
+- An OpenAI API key ([get one here](https://platform.openai.com/api-keys))
 
 ## Setup
 
-1. Clone: `git clone https://github.com/TanmoyAcharya/thesis-forge`
-2. Install: `npm install`
-3. Env: `cp .env.example .env.local` — add your OPENAI_API_KEY
-4. Dev: `npm run dev`
+```bash
+git clone https://github.com/TanmoyAcharya/thesis-forge
+cd thesis-forge
+npm install
+cp .env.example .env.local
+# Edit .env.local and add your OPENAI_API_KEY
+npm run dev
+```
 
-Built with Next.js 14, TypeScript, Tailwind CSS, and OpenAI GPT-4o.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## API Reference
+
+### POST /api/generate
+
+Generate 5 thesis research ideas.
+
+**Request body:**
+```json
+{
+  "field": "Electrical Engineering",
+  "subdomain": "Power Electronics",
+  "interests": "solar energy, MPPT, deep learning",
+  "tools": ["Simulink", "MATLAB"],
+  "degreeLevel": "Master's",
+  "paperContext": "optional extracted PDF text"
+}
+```
+
+**Response:** `GenerateResponse` with 5 `ResearchIdea` objects including feasibility/novelty scores, methodology, experiment design, and more.
+
+### POST /api/parse-pdf
+
+Parse a PDF research paper for context.
+
+**Request:** `multipart/form-data` with `file` field (PDF).
+
+**Response:**
+```json
+{
+  "text": "extracted text (max 8000 chars)",
+  "pages": 12,
+  "truncated": false
+}
+```
+
+## Deployment (Vercel)
+
+1. Push this repo to GitHub
+2. Go to [vercel.com](https://vercel.com) → New Project → import the repo
+3. Add `OPENAI_API_KEY` as an environment variable
+4. Deploy ✅
+
+## Getting an OpenAI API Key
+
+1. Go to [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+2. Create a new key
+3. Add it to `.env.local` as `OPENAI_API_KEY=sk-...`
+
+---
+
+© 2026 ThesisForge. Built with ❤️ for engineering students worldwide.
